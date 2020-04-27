@@ -11,6 +11,7 @@
   let singleFavColor = "red";
   let usernameInput;
   let someDiv;
+  let customInput;
 
   $: console.log(val);
   $: console.log(selectedOption);
@@ -18,6 +19,7 @@
   $: console.log(agreed);
   $: console.log(favColor);
   $: console.log(singleFavColor);
+  $: console.log(customInput);
 
   const setValue = event => {
     val = event.target.value;
@@ -28,12 +30,14 @@
     console.log(usernameInput.value);
     console.dir(usernameInput);
     console.dir(someDiv);
+    customInput.empty();
   };
 </script>
 
 <!-- <input type="text" value={val} on:input={setValue} /> -->
 <!-- <input type="text" bind:value={val} /> -->
-<CustomInput bind:val />
+<CustomInput bind:val bind:this={customInput} />
+
 <Toggle bind:chosenOption={selectedOption} />
 
 <!-- this will always return a stri ng even if the type is number because this is the default behavior in the DOM and JS -->
