@@ -1,5 +1,12 @@
 <script>
+  let val = "Maracana";
 
+  $: console.log(val);
+
+  const setValue = event => {
+    val = event.target.value;
+  };
 </script>
 
-<h1>Bindings & Forms</h1>
+<!-- <input type="text" value={val} on:input={setValue} /> -->
+<input type="text" bind:value={val} />
